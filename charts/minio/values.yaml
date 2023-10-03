@@ -237,7 +237,10 @@ consoleIngress:
 ## Ref: https://kubernetes.io/docs/user-guide/node-selection/
 ##
 nodeSelector: {}
-tolerations: []
+tolerations: 
+- key: "dedicated"
+  operator: "Exists"
+  effect: "NoSchedule"
 affinity: {}
 topologySpreadConstraints: []
 
@@ -462,7 +465,10 @@ postJob:
     runAsGroup: 1000
     fsGroup: 1000
   nodeSelector: {}
-  tolerations: []
+  tolerations:
+  - key: "dedicated"
+    operator: "Exists"
+    effect: "NoSchedule"
   affinity: {}
 
 ## Use this field to add environment variables relevant to MinIO server. These fields will be passed on to MinIO container(s)
