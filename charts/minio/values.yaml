@@ -241,7 +241,11 @@ tolerations:
 - key: "dedicated"
   operator: "Exists"
   effect: "NoSchedule"
-affinity: {}
+affinity: |
+  tolerations: 
+  - key: "dedicated"
+    operator: "Exists"
+    effect: "NoSchedule"
 topologySpreadConstraints: []
 
 ## Add stateful containers to have security context, if enabled MinIO will run as this
@@ -469,7 +473,11 @@ postJob:
   - key: "dedicated"
     operator: "Exists"
     effect: "NoSchedule"
-  affinity: {}
+  affinity: |
+    tolerations: 
+    - key: "dedicated"
+      operator: "Exists"
+      effect: "NoSchedule"
 
 ## Use this field to add environment variables relevant to MinIO server. These fields will be passed on to MinIO container(s)
 ## when Chart is deployed
