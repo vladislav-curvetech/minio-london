@@ -184,7 +184,7 @@ service:
 ##
 
 ingress:
-  enabled: true
+  enabled: false
   ingressClassName: "nginx"
   labels: {}
     # node-role.kubernetes.io/ingress: platform
@@ -228,11 +228,11 @@ consoleIngress:
     # nginx.ingress.kubernetes.io/whitelist-source-range: 0.0.0.0/0
   path: /
   hosts:
-    - minio-console.uk-eks.curve.tech
+    - minio.uk-eks.curve.tech
   tls: 
     - secretName: minio-console-tls
       hosts:
-        - minio-console.uk-eks.curve.tech
+        - minio.uk-eks.curve.tech
 
 ## Node labels for pod assignment
 ## Ref: https://kubernetes.io/docs/user-guide/node-selection/
