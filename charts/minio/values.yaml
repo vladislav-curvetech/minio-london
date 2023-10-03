@@ -156,7 +156,7 @@ persistence:
   ##
   ## Storage class of PV to bind. By default it looks for standard storage class.
   ## If the PV uses a different storage class, specify that here.
-  storageClass: "gp2"
+  storageClass: ""
   volumeName: ""
   accessMode: ReadWriteOnce
   size: 25Gi
@@ -239,8 +239,7 @@ consoleIngress:
 nodeSelector: {}
 tolerations: 
   - key: "dedicated"
-    operator: "Equal"
-    value: "airflow"
+    operator: "Exists"
     effect: "NoSchedule"
 affinity: {}
 topologySpreadConstraints: []
@@ -467,10 +466,9 @@ postJob:
     fsGroup: 1000
   nodeSelector: {}
   tolerations:
-    - key: "dedicated"
-      operator: "Equal"
-      value: "airflow"
-      effect: "NoSchedule"
+  - key: "dedicated"
+    operator: "Exists"
+    effect: "NoSchedule"
   affinity: {}
 
 ## Use this field to add environment variables relevant to MinIO server. These fields will be passed on to MinIO container(s)
