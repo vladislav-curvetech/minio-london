@@ -239,9 +239,6 @@ consoleIngress:
 nodeSelector: {}
 tolerations: 
   - key: "dedicated"
-    operator: "Exists"
-    effect: "NoSchedule"
-  - key: "dedicated"
     operator: "Equal"
     value: "airflow"
     effect: "NoSchedule"
@@ -268,7 +265,7 @@ podLabels: {}
 ##
 resources:
   requests:
-    memory: 16Gi
+    memory: 1Gi
 
 ## List of policies to be created after minio install
 ##
@@ -470,9 +467,6 @@ postJob:
     fsGroup: 1000
   nodeSelector: {}
   tolerations:
-    - key: "dedicated"
-      operator: "Exists"
-      effect: "NoSchedule"
     - key: "dedicated"
       operator: "Equal"
       value: "airflow"
